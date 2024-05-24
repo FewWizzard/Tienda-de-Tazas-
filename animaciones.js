@@ -16,8 +16,16 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-const nav = document.querySelector('nav');
+document.addEventListener('DOMContentLoaded', () => {
+    // elige el elemento nav
+    const nav = document.querySelector('nav'); // ajusta el selector para coincidir con el elemento nav
 
-window.addEventListener('scroll', () => {
-    nav.classList.toggle ('sticky', this.window.scrollY >80);
+    // asegura que exista el elemento nav
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('sticky', window.scrollY > 80);
+        });
+    } else {
+        console.error('Nav element not found');
+    }
 });
